@@ -25,6 +25,8 @@ func main(){
 - GO can't have mulitple packages.
 - Mulitple files can have the same package.
 
+- Within same PACKAGES, you can import any file to other file without acutally using the IMPORT KEYWORD.
+
 ## 1.2) MODULES -
 - Every GO package is under any single Module.
 - `go init mod {module_path}` > module_path: example.com/go-path.
