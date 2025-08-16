@@ -1,4 +1,4 @@
-##  1. Basics of GO
+#  1. Basics of GO
 
 ```go
 package main
@@ -18,7 +18,7 @@ func main(){
 
 - `var investmentAmount, years float64 = 1000, 10` > These single line declaration can have multple datatypes as well.
 
-### 1.1) PACKAGES -
+### (1.1) PACKAGES -
 ![Packages in Go](assets/image.png) 
 - `package main` is the **ENTRY point** of the execution for GO.
 - Each go file is to be included inside a PACKAGE.
@@ -26,7 +26,23 @@ func main(){
 - Mulitple files can have the same package.
 
 - Within same PACKAGES, you can import any file to other file without acutally using the IMPORT KEYWORD.
+- If you're working with different packages in GO, the **FIRST LETTER MUST BE CAPITAL**
 
-## 1.2) MODULES -
+### (1.2) MODULES -
 - Every GO package is under any single Module.
 - `go init mod {module_path}` > module_path: example.com/go-path.
+
+### (1.3) STRUCT -
+- Used to bundle things and vars together.
+
+# 2. Medium Concepts - (Pointers) 
+
+### (2.1) Mutuation Methods
+- When you are trying to **change some data of any struct** then normal argument passing will NOT work.
+- You have to pass the **struct address** as argument, so that ORIGINAL value is changed.
+- Or else for every NON-ADDRESS argument, a copy is made.
+
+### (2.2) Creator or Constructor Function
+- Special function which is just like a Pattern which is used while writing Golang Code.
+- It is **UTILITY function** that takes care of **creating a STRUCT.**
+- Syntactically, the name starts with `new` - Like `func newUser`
