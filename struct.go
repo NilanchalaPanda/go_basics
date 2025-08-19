@@ -2,30 +2,9 @@ package main
 
 import (
 	"fmt"
-	"time"
+
+	"exmaple.com/struct/user"
 )
-
-type user struct {
-	firstName   string
-	lastName    string
-	dateOfBirth string
-	createdAt   time.Time
-}
-
-func (u user) outputUserDetails() {
-	// fmt.Println("User Details:")
-	// fmt.Println("First Name:", u.firstName)
-	// fmt.Println("Last Name:", u.lastName)
-	// fmt.Println("Date of Birth:", u.dateOfBirth)
-	// fmt.Println("Account Created At:", u.createdAt.Format("02/01/2006 15:04:05"))
-	fmt.Println(u.firstName, u.lastName, u.dateOfBirth)
-}
-
-// Mutation Methods - You should pass the pointer address and not just 'u user'. That will create a new copy of user.
-func (u *user) clearUserName() {
-	u.firstName = ""
-	u.lastName = ""
-}
 
 func main() {
 	userFirstName := getUserData("Enter your first name: ")
@@ -35,21 +14,33 @@ func main() {
 	// var appUser user
 	// appuser = user{}
 
-	var appUser = user{
-		firstName:   userFirstName,
-		lastName:    userLastName,
-		dateOfBirth: userDateOfBirth,
-		createdAt:   time.Now(),
-	}
-
+	// Old way of initializing the user struct
+	// -- Way 1
+	// var appUser = user{
+	// 	firstName:   userFirstName,
+	// 	lastName:    userLastName,
+	// 	dateOfBirth: userDateOfBirth,
+	// 	createdAt:   time.Now(),
+	// }
+	// -- Way 1
 	// outputUserDetails(appUser)
 
-	appUser.outputUserDetails()
-	appUser.clearUserName()
+	// New way of initializing the user struct
+	var appUser *user.User
+
+	appUser, err := user.New(userFirstName, userLastName, userDateOfBirth)
+
+	if err != nil {
+		fmt.Println("Error creating user:", err)
+	}
+
+	appUser.OutputUserDetails()
+	appUser.ClearUserName()
 	fmt.Println("User name cleared.")
-	appUser.outputUserDetails() // This will show empty first and last names after clearing
+	appUser.OutputUserDetails() // This will show empty first and last names after clearing
 }
 
+// -- Way 1
 // func outputUserDetails(u user) {
 // 	fmt.Println("User Details:")
 // 	fmt.Println("First Name:", u.firstName)
