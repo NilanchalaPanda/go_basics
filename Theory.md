@@ -86,7 +86,34 @@ func newUser(firstName, lastName, dateOfBirth string) *user {
 - If the variable is written inside the **SWITCH**, then > **switch value.(type)**
 - If it is outside, then > **varType, isTrue := a.(int)**
 
-# 3. Generics
 
-### (3.1) Basic Need
-- 
+### (2.6) Any type in Golang
+- The "any" type can be configured with the help of the keyword > **interface{}**
+- It accepts any type and can be usefull in some cases.
+- But aviod using it often in the code blocks.
+
+
+### (2.7) Generics Basic Need
+- To secure the any type, we make use of Generics in out code.
+- Syntactically, it can be something like:
+	```
+	func add[T string|int|float64] (a, b T) T {}
+	```
+- You can name `T` anything, but here I have named it as `T`.
+
+
+
+# Advances DS in Golang
+
+### (2.1) Arrays
+- Collection of same data types together (list in Python).
+- Syntax is as follows:
+	```
+	prices: [4]float64{23.4, 12.5, 95.2, 100.4}
+	```
+
+	or
+
+	```
+	var productNames [4]string = [4]string{"A Book"}
+	```
