@@ -46,3 +46,47 @@ func main(){
 - Special function which is just like a Pattern which is used while writing Golang Code.
 - It is **UTILITY function** that takes care of **creating a STRUCT.**
 - Syntactically, the name starts with `new` - Like `func newUser`
+```go
+func newUser(firstName, lastName, dateOfBirth string) user {
+    return user{
+        firstName:   firstName,
+		lastName:    lastName,
+		dateOfBirth: dateOfBirth,
+		createdAt:   time.Now(),
+	}
+}
+```
+
+WITH POINTER - We can return a Pointer as well.
+```go
+func newUser(firstName, lastName, dateOfBirth string) *user {
+    return &user{
+        firstName:   firstName,
+		lastName:    lastName,
+		dateOfBirth: dateOfBirth,
+		createdAt:   time.Now(),
+	}
+}
+```
+
+- You can add validation steps inside the **STRUCT FUNCTION** only and not repeat it every time!
+
+
+### (2.3) Struct Embedding
+- Putting one struct in another struct is known as `STRUCT EMBEDDING` > Similar to Inheritance Concept.
+
+
+### (2.4) Embedding Interfaces
+- It is basically mixture of 2 or more interfaces together to use it somewhere else.
+- If there is only one SINGLE METHOD in the interface then the naming convention is little different.
+- EG: The _method name_ is **Save()** > Then the _interface name_ is **saver OR Saver**
+
+
+### (2.5) Find type of value
+- If the variable is written inside the **SWITCH**, then > **switch value.(type)**
+- If it is outside, then > **varType, isTrue := a.(int)**
+
+# 3. Generics
+
+### (3.1) Basic Need
+- 
